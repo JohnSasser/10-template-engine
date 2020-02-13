@@ -1,30 +1,31 @@
 {
-  "name": "10-template-engine",
-  "version": "1.0.0",
-  "description": "prompt the user for information about the team/group, then will create an HTML file that displays a formatted team roster based on the information.",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "dependencies": {
-    "inquirer": "^7.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JohnSasser/10-template-engine.git"
-  },
-  "keywords": [
-    "template",
-    "engine"
-  ],
-  "author": "John Sasser",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JohnSasser/10-template-engine/issues"
-  },
-  "homepage": "https://github.com/JohnSasser/10-template-engine#readme"
+	"name": "10-template-engine",
+	"version": "1.0.0",
+	"description": "prompt the user for information about the team/group, then will create an HTML file that displays a formatted team roster based on the information.",
+	"main": "index.js",
+	"directories": {
+		"lib": "lib",
+		"package": "package"
+	},
+	"dependencies": {
+		"fs": "0.0.1-security",
+		"inquirer": "^7.0.4"
+	},
+	"devDependencies": {
+		"jest": "^25.1.0"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"test": "jest test/* --verbose"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JohnSasser/10-template-engine.git"
+	},
+	"author": "John Sasser",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JohnSasser/10-template-engine/issues"
+	},
+	"homepage": "https://github.com/JohnSasser/10-template-engine#readme"
 }
