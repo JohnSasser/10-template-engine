@@ -37,7 +37,7 @@ function createEmployee() {
 							answers.email,
 							managerAnswers.officeNumber
 						);
-						readMgnFile(answers, managerAnswers);
+						readMgnFile(managerData);
 
 						restartInquirer();
 					});
@@ -52,7 +52,7 @@ function createEmployee() {
 								answers.email,
 								internAnswers.internSchool
 							);
-							readInternFile(answers, internAnswers);
+							readInternFile(internData);
 
 							restartInquirer();
 						});
@@ -71,7 +71,7 @@ function restartInquirer() {
 				createEmployee();
 				break;
 
-			case "NO!":
+			case "NOPE, THATS EVERYONE!":
 				createHTML();
 				break;
 		}
@@ -82,10 +82,12 @@ function restartInquirer() {
 function readEngFile(engineerData) {
 	// console.log(engineerData);
 	// data is my html string,
+	const icon = `<i class="fas fa-glasses fa-2x"></i>`;
 	fs.readFile("./html/engineer.html", "utf8", function(error, data) {
 		// console.log(engineerData.name);
 		const newData = data
-			.replace("Ename", engineerData.name)
+			.replace("Ename:", engineerData.name)
+			.replace("Eicon:", icon)
 			.replace("Eid", engineerData.id)
 			.replace("Eemail", engineerData.email)
 			.replace("Egighub", engineerData.github);
@@ -98,12 +100,14 @@ function readEngFile(engineerData) {
 // not working
 function readMgnFile(managerData) {
 	// data is my html string,
+	const icon = `<i class="far fa-chart-bar fa-2x"></i>`;
 	fs.readFile("./html/manager.html", "utf8", function(error, data) {
 		const newData = data
-			.replace("Mname", managerData.name)
-			.replace("Micon", managerData.id)
+			.replace("Mname:", managerData.name)
+			.replace("Micon:", icon)
+			.replace("Mid", managerData.id)
 			.replace("Memail", managerData.email)
-			.replace("Mgithub", managerData.officeNumber);
+			.replace("Mphone", managerData.officeNumber);
 
 		// read .html for all class values and the combine them before writing the file.
 		html += newData;
@@ -112,12 +116,14 @@ function readMgnFile(managerData) {
 // not working
 function readInternFile(internData) {
 	// data is my html string,
+	const icon = `<i class="fas fa-eye fa-2x"></i>`;
 	fs.readFile("./html/intern.html", "utf8", function(error, data) {
 		const newData = data
-			.replace("Iname", internData.name)
-			.replace("Iicon", internData.id)
+			.replace("Iname:", internData.name)
+			.replace("Iicon:", icon)
+			.replace("Iid", internData.id)
 			.replace("Iemail", internData.email)
-			.replace("Igithub", internData.internSchool);
+			.replace("Ischool", internData.internSchool);
 
 		// read .html for all class values and the combine them before writing the file.
 		html += newData;
